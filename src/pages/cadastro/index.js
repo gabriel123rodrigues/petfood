@@ -1,13 +1,11 @@
 
 import React from "react";
-import logo from '../../assets/logo-white.png'
+import Header from "../../components/header";
 import illustration from '../../assets/illustration.png'
 
 const Cadastro = ()=>{
     return (<div className="container-fluid h-100 bg-primary">
-        <div className="col-12">
-            <img src={logo}></img>
-        </div>
+        <Header whiteVersion/>
         <div className="row">
         <div className="col-6 text-right my-auto">
             <img src={illustration}></img>
@@ -19,7 +17,7 @@ const Cadastro = ()=>{
                 <input type="text" 
                 className="form-control form-control-lg mb-3" 
                 placeholder="Nome completo"></input>
-                <input type="text" 
+                <input type="email" 
                 className="form-control form-control-lg mb-3" 
                 placeholder="E-mail"></input>
                 <input type="text" 

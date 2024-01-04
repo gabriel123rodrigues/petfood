@@ -13,7 +13,16 @@ body{
     font-family: 'Open Sans';
     letter-spacing: -0.03em;
 }
-
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="password"]{
+    background:#f6f5f5;
+    border: 0.5px solid #dcdcdc;
+    outline:none;
+    color:#626264;
+    font-size: 15px
+}
 .bg-primary{
     background-color: var(--primary)!important;
 }
