@@ -4,3 +4,8 @@
     display: inline-block;
     border-bottom: 2px solid var(--primary);
 }
+.box-sidebar{
+    max-height: 550px;
+    overflow-y: auto;
+    margin-top: 50px;
+}

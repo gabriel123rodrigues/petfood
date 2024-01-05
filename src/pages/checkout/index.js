@@ -75,10 +75,10 @@ const Checkout = () => {
                     </div>
                     
                     <div className="col-6">
-                        <div className="box col mb-4">
+                        <div className="box col mb-4 box-sidebar">
                             <h4>Minha sacola(5)</h4>
                             <div className="row products">
-                                <Product/>
+                               {[1,2,3,4,5,6,7,8,9].map(p =><Product/>)}
                             </div>
                         </div>
                         
