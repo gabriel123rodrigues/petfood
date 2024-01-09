@@ -2,6 +2,7 @@ import Header from '../../components/header'
 import petlove from '../../assets/petlove.webp'
 import Icon from '@mdi/react';
 import { mdiCash, mdiCrosshairsGps, mdiStarOutline } from '@mdi/js';
+import Product from '../../components/products/card';
 import './styles.css'
 
 const Petshop = () =>{
@@ -29,8 +30,14 @@ const Petshop = () =>{
                 </text>
                 <label className='badge badge-primary'>Frete grátis</label>
             </div>
-            <div className="col-10"></div>
+           
         </div>
+        <div className="col-10">
+                <h5>Produtos</h5>
+                <div className="row">
+                   {[1,2,3,4,5,6,7,8,9].map(p=> <Product/>)}
+                </div>
+            </div>
     </div>
     </div>
     </div>
