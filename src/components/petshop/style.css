@@ -1,0 +1,24 @@
+.petshop{
+    list-style:none;
+    padding:7px;
+    margin-right: 20px;
+    border-radius: 5px;
+    border-bottom: 3px;
+}
+.petshop img{
+    max-height: 80px;
+    border-radius: 5px;
+    vertical-align: baseline;
+}
+.petshop b{
+    margin-bottom: 0;
+}
+
+.petshop-infos .span{
+    vertical-align: middle;
+    color:#626264;
+}
+.container-infos{
+    margin-bottom: 10px;
+    margin-left: 3px;
+}
