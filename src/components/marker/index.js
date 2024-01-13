@@ -5,11 +5,11 @@ import petlove from '../../assets/petlove.webp'
 
 
 
-const Marker = () =>{
+const Marker = ({petshop}) =>{
     return (
         <div>
             <img className="img-marker" src={MarkerIcon}></img>
-            <img src={petlove}
+            <img src={petshop.logo}
                     className="img-marker"></img>
         </div>
     )
