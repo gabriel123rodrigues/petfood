@@ -1,12 +1,28 @@
 
 
-import petlove from '../../assets/petlove.webp'
+import {setShopMapSelected, setShopMapCenter} from '../../store/modules/shop/action'
 import Icon from '@mdi/react';
+import {useDispatch, useSelector} from 'react-redux'
 import { mdiCash, mdiCrosshairsGps, mdiStarOutline } from '@mdi/js';
-import './style.css'
+import './style.css';
+
+
 const Petshop = ({petshop}) => {
+    
+    
+    const dispatch = useDispatch();
+    const {petshopMapSelected} = useSelector((state)=>state.shop);
+
+    const setSelectedPetshop = () =>{
+        dispatch(setShopMapSelected(petshop._id));
+        dispatch(setShopMapCenter(petshop.location));
+    
+}
+
     return (
-        <li className="petshop d-inline-block">
+        <li className={`petshop d-inline-block  ${petshopMapSelected === petshop._id ? 'active': ''}`}
+        onClick={()=>setSelectedPetshop()}
+        >
             <div className="d-inline-block">
                 <img src={petshop.logo}
                     className="img-fluid img-logo"></img>

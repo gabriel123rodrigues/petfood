@@ -1,20 +1,34 @@
 import Header from '../../components/header'
-import petlove from '../../assets/petlove.webp'
+import petlove from '../../assets/petlove.webp';
+import { useEffect } from 'react';
+import {useDispatch, useState, useSelector} from 'react-redux'
 import Icon from '@mdi/react';
+import { useParams } from 'react-router-dom';
 import { mdiCash, mdiCrosshairsGps, mdiStarOutline } from '@mdi/js';
 import Product from '../../components/products/card';
-import './styles.css'
+import './styles.css';
+import { requestPetshop } from '../../store/modules/shop/action';
 
 const Petshop = () =>{
+
+    const {id} = useParams();
+    
+    const dispatch = useDispatch();
+    const {petshop} = useSelector ((state)=>state.shop);
+    
+    useEffect(()=>{
+        dispatch(requestPetshop(id));
+    },[])
+
    return(
     <div className ="h-100">
     <Header/>
     <div className="container">
         <div className="row">
             <div className="col-2">
-                <img src={petlove}
+                <img src={petshop.logo}
             className="img-fluid img-logo"></img>
-            <b>PetLove</b>
+            <b>{petshop.nome}</b>
             <div className='petshop-infos'>
             <Icon className='span mdi-star' path={mdiStarOutline} size={0.8} />
                 <text>
@@ -35,7 +49,9 @@ const Petshop = () =>{
         <div className="col-10">
                 <h5>Produtos</h5>
                 <div className="row">
-                   {[1,2,3,4,5,6,7,8,9].map(p=> <Product/>)}
+                {petshop.products?.map((p) => (
+                <Product product={p} />
+              ))}
                 </div>
             </div>
     </div>

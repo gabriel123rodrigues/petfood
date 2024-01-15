@@ -2,7 +2,7 @@
 import { takeLatest,all, call, put } from 'redux-saga/effects';
 import types from './types';
 import api from '../../../services/api';
-import {setPetshops} from './action';
+import {setPetshops, setPetshop} from './action';
 
 
 export function* requestPetshops(){
@@ -10,8 +10,14 @@ export function* requestPetshops(){
     const res = response.data; 
     yield put (setPetshops(res.petshops));
 }
+export function* requestPetshop(payload) {
+    const response = yield call(api.get, `/petshop/${payload.id}`);
+    const res = response.data;
+    yield put(setPetshop(res.petshop));
+  }
 
 
 export default all([
-    takeLatest(types.REQUEST_PETSHOPS, requestPetshops)
+    takeLatest(types.REQUEST_PETSHOPS, requestPetshops),
+    takeLatest(types.REQUEST_PETSHOP, requestPetshop),
 ])
